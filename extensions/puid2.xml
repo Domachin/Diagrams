@@ -15,8 +15,8 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
 	<![CDATA[
 		<html>
 			<head>
-				<script src="https://raw.githack.com/Domachin/Diagrams/master/extensions/lib/jquery.js"></script>
-				<script src="https://raw.githack.com/Domachin/Diagrams/master/extensions/js/puid.js"></script>
+				<xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="https://raw.githack.com/Domachin/Diagrams/master/extensions/lib/jquery.js" type="application/javascript"/>
+				<xhtml:script xmlns:xhtml="http://www.w3.org/1999/xhtml" src="https://raw.githack.com/Domachin/Diagrams/master/extensions/js/puid.js" type="application/javascript"/>
 				<link rel="stylesheet" type="text/css" href="https://raw.githack.com/Domachin/Diagrams/master/extensions/css/puid.css">
 			</head>
 			<body>
