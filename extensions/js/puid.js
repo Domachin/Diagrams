@@ -257,6 +257,7 @@ function genAllUndefPUID()
 {
     if (Mod_Ref == undefined)
     {
+	    window.alert("nonononon");
         window.alert("Operation is not available!");
         return;
     }
