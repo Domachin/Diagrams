@@ -55,11 +55,11 @@ var Last_Log = undefined;
 function logm(s)
 {
 	var p = document.createElement("div");
-	p.textContent = s;
+	p.innerHTML = s;
 	if (Last_Log == undefined)
-		document.getElementById("log").appendChild(p);
+		$(p).appendTo("#log");
 	else
-		document.getElementById("log").insertBefore(p,Last_Log.nextSibling);
+		$(p).prependTo("#log");
 	Last_Log = p;
 }
 
@@ -114,7 +114,8 @@ function genPUID()
         {
             if (res.code === RM.OperationResult.OPERATION_OK)
             {
-                document.getElementById("puid").textContent = new_puid;
+		$("#puid").empty();
+                $("#puid").append(new_puid);
                 logm ("+ " + Art_ID.toString() + " = " + new_puid);
                 
             	Mod_Counter = parseInt(Mod_Counter + Mod_Increment);
@@ -124,7 +125,8 @@ function genPUID()
 				{
 				    if (res.code === RM.OperationResult.OPERATION_OK)
 				    {
-						document.getElementById("counter").textContent = Mod_Counter.toString() + "/" + Mod_Increment.toString();
+					    	$("#counter").empty();
+						$("#counter").append(Mod_Counter.toString() + "/" + Mod_Increment.toString());
 				    }
 				});
             }
@@ -214,7 +216,8 @@ function genModPUID(undef_only,reset_value)
 						{
 							if (res.code == RM.OperationResult.OPERATION_OK)
                                         		{
-                                                		document.getElementById("counter").textContent = Mod_Counter.toString() + "/" + Mod_Increment.toString();
+								$("#counter").empty();
+                                                		$("#counter").append(Mod_Counter.toString() + "/" + Mod_Increment.toString());
 							}
 						});
 						window.alert("Done (" + num_art.toString() + ")");
@@ -232,7 +235,8 @@ function genModPUID(undef_only,reset_value)
 				{
 					if (res.code == RM.OperationResult.OPERATION_OK)
 					{
-						document.getElementById("counter").textContent = Mod_Counter.toString() + "/" + Mod_Increment.toString();
+						$("#counter").empty();
+						$("#counter").append(Mod_Counter.toString() + "/" + Mod_Increment.toString());
 						
 						RM.Data.setAttributes(puid_vals, function(res)
 						{
@@ -303,11 +307,12 @@ $(function()
 		        Art_ID = undefined;
 		        Art_PUID = undefined;
 
-				document.getElementById("version").textContent = Script_Version;
-		        document.getElementById("prefix").textContent = "";
-		        document.getElementById("counter").textContent = "";
-		        document.getElementById("artid").textContent = "";
-		        document.getElementById("puid").textContent = "";
+			$("#version").empty();
+			$("#version").append(Script_Version);
+		        $("#prefix").empty();
+		        $("#counter").empty();
+		        $("#artid").empty();
+		        $("#puid").empty();
 		        
 		        //window.alert(res.code);
 		        if (res.code == RM.OperationResult.OPERATION_OK)
@@ -351,10 +356,9 @@ $(function()
 		                            else
 		                                Mod_Separator = "-";
 		                                
-		                            document.getElementById("prefix").textContent = Mod_Prefix;
-		                            document.getElementById("counter").textContent = Mod_Counter.toString() + 
-		                            						"/" +  Mod_Increment.toString();
-									gadgets.window.adjustHeight(Window_Height);
+		                            $("#prefix").append(Mod_Prefix);
+		                            $("#counter").append(Mod_Counter.toString() + "/" +  Mod_Increment.toString());
+					    gadgets.window.adjustHeight(Window_Height);
 		                            //window.alert("ok");
 		                        }
 
@@ -378,8 +382,8 @@ $(function()
 		    Art_Ref = undefined;
 		    Art_ID = undefined;
 		    Art_PUID = undefined;
-		    document.getElementById("artid").textContent = "";
-		    document.getElementById("puid").textContent = "";
+		    $("#artid").empty();
+		    $("#puid").empty();
 
 		    if (ref.length == 1 && Mod_Counter != undefined)
 		    {
@@ -401,7 +405,7 @@ $(function()
 		                    Art_Ref = res.data[0].ref;
 		                    Art_ID = id;
 		                    //window.alert(id);
-		                    document.getElementById("artid").textContent = id.toString();
+		                    $("#artid").append(id.toString());
 
 				    if(Art_Type == "Stakeholder Requirement" || Art_Type == "System Requirement" || Art_Type == "Interface Requirement")
 					Attr_PUID = "Requirement Identifier";	
@@ -418,11 +422,11 @@ $(function()
 		                                var new_puid = computePUID();
 		                                   
 		                                //window.alert("new puid: " + new_puid);
-		                                document.getElementById("puid").textContent = ">>> " + new_puid;
+		                                $("#puid").append(">>> " + new_puid);
 		                            }
 		                            else
 		                            {
-		                                document.getElementById("puid").textContent = Art_PUID;
+		                                $("#puid").append(Art_PUID);
 		                            }
 		                        }
 		                        else
@@ -430,8 +434,8 @@ $(function()
 		                            Art_Ref = undefined;
 		                            Art_ID = undefined;
 		                            Art_PUID = undefined;
-		                            document.getElementById("artid").textContent = "";
-		                            document.getElementById("puid").textContent = "";
+		                            $("#artid").empty();
+		                            $("#puid").empty();
 		                        }
 		                    });
 		                }
