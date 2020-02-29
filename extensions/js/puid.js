@@ -449,11 +449,11 @@ genPUID()				    if(Art_Type == "Stakeholder Requirement" || Art_Type == "System
 	{
 		gadgets.window.adjustHeight(1);
 	}
-	$("#genPUID").on("click", genPUID());
-	$("#genAllUndefPUID").on("click", genAllUndefPUID());
-	$("#genAllPUID").on("click", genAllPUID());
-	$("#resetAllPUID").on("click", resetAllPUID());
-	$("#clearLog").on("click", clearLog());
+	$("#genPUID").on("click", genPUID);
+	$("#genAllUndefPUID").on("click", genAllUndefPUID);
+	$("#genAllPUID").on("click", genAllPUID);
+	$("#resetAllPUID").on("click", resetAllPUID);
+	$("#clearLog").on("click", clearLog);
     
 });
 
