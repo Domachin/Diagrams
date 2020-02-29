@@ -407,7 +407,7 @@ $(function()
 		                    //window.alert(id);
 		                    $("#artid").append(id.toString());
 
-				    if(Art_Type == "Stakeholder Requirement" || Art_Type == "System Requirement" || Art_Type == "Interface Requirement")
+genPUID()				    if(Art_Type == "Stakeholder Requirement" || Art_Type == "System Requirement" || Art_Type == "Interface Requirement")
 					Attr_PUID = "Requirement Identifier";	
 
 		                    RM.Data.getAttributes(Art_Ref, [Attr_PUID] , function(res)
@@ -449,6 +449,11 @@ $(function()
 	{
 		gadgets.window.adjustHeight(1);
 	}
+	$("#genPUID").on("click", genPUID());
+	$("#genAllUndefPUID").on("click", genAllUndefPUID());
+	$("#genAllPUID").on("click", genAllPUID());
+	$("#resetAllPUID").on("click", resetAllPUID());
+	$("#clearLog").on("click", clearLog());
     
 });
 
